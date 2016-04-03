@@ -1,0 +1,35 @@
+<ng-include src="'topbar.html'"></ng-include>
+<div style="width:960px;margin:auto">
+<h3>全部借还车记录</h3>
+<div class="table-responsive">
+	<table class="user_info table table-bordered text-center course_info" id="tb_doc_m">
+		<thead>
+			<tr>
+			 	<th style="width:15%">订单编号</th>
+	 			<th style="width:15%">借车时间</th>
+	 			<th style="width:15%">借车地点</th>
+	 			<th style="width:15%">归还时间</th>
+	 			<th style="width:15%">归还地点</th>
+	 			<th style="width:15%">消费金额</th>
+			 	<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="log in logs">
+				<td>{{ log.id }}</td>
+				<td>{{ log.time }}</td>
+				<td>{{ log.placename }}</td>
+				<td>{{ log.returntime }}</td>
+				<td>{{ log.returnplacename }}</td>
+				<td>{{ log.money }}</td>
+				<td><a href='#'><button ng-hide="log.isreturn==1">还车</button></a>
+					<p ng-show="log.isreturn==1">已归还</p>
+				</td>
+			</tr>
+		</tbody>
+	 </table>
+</div>
+	<div>
+		<tm-pagination conf="paginationConf"></tm-pagination>
+	</div>
+</div>

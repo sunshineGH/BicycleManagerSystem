@@ -1,0 +1,24 @@
+<ng-include src="'topbar.html'"></ng-include>
+<div style="width:960px;margin:auto">
+	<form>
+		<fieldset class="xianxia">
+			<legend>密码更改</legend>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">工号：{{user.id}}</label>
+			</div>
+			<div class="form-group" ng-show="true">
+				<label class="col-lg-12 control-label">姓名：{{ user.name }}</label>
+			</div>
+			<div class="form-group" ng-show="true">
+				<label class="col-lg-12 control-label">原密码：<input type="password" ng-model="user.oldPsw" ng-blur="checkPsw()"></label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">新密码：<input type="password" ng-model="user.newPsw"></label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">再次输入新密码：<input type="password" ng-model="user.checkPsw" ng-blur="checkNewPsw()"></label>
+			</div>
+		</fieldset>
+		<button type="submit" class="btn btn-primary col-sm-offset-1" ng-click="changePsw()">提交</button>
+	</form>
+</div>

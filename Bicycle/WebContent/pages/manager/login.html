@@ -1,0 +1,32 @@
+
+	<div class="login-header text-center">
+		<img src="http://10.103.240.11:8080/Bicycle/images/logo.png" class="logo" alt="Logo">
+	</div>
+	<div class="login-wrapper">
+		<form role="form"  id="loginForm">
+			<div class="form-group has-feedback lg left-feedback no-label">
+			  <input type="text" class="form-control no-border input-lg rounded" placeholder="用户账号" name="id" id="id" ng-model="user.id" autofocus>
+			  <span class="fa fa-user form-control-feedback"></span>
+			</div>
+			<div class="form-group has-feedback lg left-feedback no-label">
+			  <input type="password" class="form-control no-border input-lg rounded" placeholder="密码" name="password" id="password" ng-model="user.password">
+			  <input style="display:none" type="text" class="form-control no-border input-lg rounded"  name="isadmin" value="1" id="isadmin">
+			  <input style="display:none" type="text" class="form-control no-border input-lg rounded"  name="method" value="login" id="method">
+			  <span class="fa fa-unlock-alt form-control-feedback"></span>
+			</div>
+			<!-- <div class="form-group">
+			  <div class="checkbox">
+				<label>
+				  <input type="checkbox" class="i-yellow-flat"> Remember me
+				</label>
+			  </div>
+			</div> -->
+			<div class="form-group">
+				<p ng-show="isCustomer" style="color:#000;">还没有账号？<a style="cursor:pointer;text-decoration:none">立刻注册</a><p>
+				<button type="submit" class="btn btn-warning btn-lg btn-perspective btn-block" ng-click="login(user)">登录</button>
+			</div>
+		</form>
+	</div>
+	<script src="../../js/jquery.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+</div>

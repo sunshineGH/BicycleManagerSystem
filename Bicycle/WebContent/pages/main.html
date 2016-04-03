@@ -1,0 +1,40 @@
+<ng-include src="'topbar.html'"></ng-include>
+<div style="width:960px;margin:auto">
+	<h3>全部自行车列表</h3>
+	<div class="row">
+		<label class="control-label">按地点选择
+			<select ng-model="order.bubblePlace" ng-options="place.name for place in placesInSelect" ng-change="selectPlace()">
+				<option value="">--请选择--</option>
+			</select></label>
+	</div>
+	<div class="table-responsive">
+		<table class="user_info table table-bordered text-center course_info" id="tb_doc_m">
+			<thead>
+				<tr>
+				 	<th style="width:15%">编号</th>
+		 			<th style="width:15%">名称</th>
+		 			<th style="width:15%">全部停车位</th>
+		 			<th style="width:15%">剩余停车位</th>
+		 			<th style="width:15%">全部自行车</th>
+		 			<th style="width:15%">剩余自行车</th>
+				 	<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="place in places">
+					<td>{{ place.id }}</td>
+					<td>{{ place.name }}</td>
+					<td>{{ place.parkingspace }}</td>
+					<td>{{ place.parkingspace-place.userparkingspace }}</td>
+					<td>{{ place.bike }}</td>
+					<td>{{ place.bike-place.hirebike }}</td>
+					<td><button ng-disabled="place.bike-place.hirebike<=0" ng-click="borrowBike(place)" class="btn change_info has-margin btn-primary">借车</button>
+					<button ng-disabled="place.parkingspace-place.userparkingspace<=0" class="btn  btn-danger act_num" ng-click="returnBike(place)">还车</button></td>
+				</tr>
+			</tbody>
+		 </table>
+	</div>
+	<div>
+		<tm-pagination conf="paginationConf"></tm-pagination>
+	</div>
+</div>

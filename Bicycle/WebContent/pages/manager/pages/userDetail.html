@@ -1,0 +1,75 @@
+<div ng-include="'pages/navbar.html'"></div>
+<div class="page-content">
+	<div class="container-fluid">
+		<ol class="breadcrumb default square rsaquo sm">
+			<!-- <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+			<li id="subnav"></li> -->
+		</ol>
+		<div class="the-box">
+			<form id="ValidationForm" method="post" action="" class="form-horizontal" novalidate="novalidate" name="userForm">
+				<fieldset class="xianxia">
+					<legend>{{user.module}}信息{{user.title}}</legend>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" name="userID">账号</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="userID" ng-model="worker.id" ng-readonly="user.isReadOnlyID" ng-change="validateID()" ng-maxlength="30" ng-minlength="2" required>{{messageID}}
+							<span class="error" ng-show="userForm.$dirty && userForm.userID.$error.required">字段必须填写</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.userID.$error.minlength">最少2个字符</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.userID.$error.maxlength">最多30个字符</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" name="username">姓名</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="username" ng-model="worker.name" ng-minlength="2" ng-maxlength="10" required>
+							<span class="error" ng-show="userForm.$dirty && userForm.username.$error.required">字段必须填写</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.username.$error.minlength">最少2个字符</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.username.$error.maxlength">最多10个字符</span>
+						</div>
+					</div>
+					<div class="form-group"  ng-show="user.isShowPsw">
+						<label class="col-lg-3 control-label">密码</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="password" ng-model="worker.password" ng-minlength="1" ng-maxlength="8" required>
+							<span class="error" ng-show="userForm.$dirty && userForm.password.$error.required">字段必须填写</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.password.$error.minlength">最少4个字符</span>
+							<span class="error" ng-show="userForm.$dirty && userForm.password.$error.maxlength">最多8个字符</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">性别</label>
+						<div class="col-lg-5">
+							<label><input type="radio" name="sex" value="男" ng-model="worker.sex">男</label>
+							<label><input type="radio" name="sex" value="女" ng-model="worker.sex">女</label>
+						</div>
+						<!-- <div class="col-lg-3">
+							<input id="wdate" type="text" class="form-control" name="username" onclick="WdatePicker()">
+						</div> -->
+						<!-- <div class="col-lg-1">
+							<img onclick="WdatePicker({el:'d12'})" src="My97DatePicker/skin/datePicker.gif" width="16" height="22" align="absmiddle">
+						</div> -->
+						
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">联系电话</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="username" ng-model="worker.phone"> 
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">邮箱</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="username" ng-model="worker.email"> 
+						</div>
+					</div>
+				</fieldset>
+				<div class="form-group">
+					<div class="col-lg-4 col-lg-offset-4">
+						<button type="submit" class="btn btn-primary" ng-click="addUser()">提交</button>
+						<!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">删除</button> -->
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

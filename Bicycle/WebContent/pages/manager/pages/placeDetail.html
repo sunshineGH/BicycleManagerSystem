@@ -1,0 +1,80 @@
+<div ng-include="'pages/navbar.html'"></div>
+<div class="page-content">
+	<div class="container-fluid">
+		<ol class="breadcrumb default square rsaquo sm">
+			<!-- <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+			<li id="subnav"></li> -->
+		</ol>
+		<div class="the-box">
+			<form id="ValidationForm"  class="form-horizontal" novalidate="novalidate" name="placeForm">
+				<fieldset class="xianxia">
+					<legend>地点信息{{place.title}}</legend>
+					<div class="form-group" ng-show="isShowInput">
+						<label class="col-lg-3 control-label" name="placeID">地点编号</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="userID" ng-model="place.id" ng-readonly="isReadOnlyInput" ng-change="validateID()" ng-maxlength="30" ng-minlength="1" required>
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placeID.$error.required">字段必须填写</span>
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placeID.$error.minlength">最少2个字符</span>
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placeID.$error.maxlength">最多30个字符</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" name="placename">地点名称</label>
+						<div class="col-lg-5">
+							<input type="text" class="form-control" name="placename" ng-model="place.name"  ng-maxlength="10" required>
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placename.$error.required">字段必须填写</span>
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placename.$error.maxlength">最多10个字符</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label">全部自行车</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="bike" ng-model="place.bike" required ng-readonly="isReadOnlyInput">
+							<span class="error" ng-show="placeForm.$dirty && placeForm.bike.$error.required">字段必须填写</span>
+						</div>
+					</div>
+					<div class="form-group" ng-show="isShowInput">
+						<label class="col-lg-3 control-label">新增自行车</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="addbike" ng-model="place.addbike">
+						</div>
+					</div>
+					<div class="form-group" ng-show="isShowInput">
+						<label class="col-lg-3 control-label">已借自行车</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="placehirebike" ng-model="place.hirebike"  ng-readonly="isReadOnlyInput">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-3 control-label" >全部停车位</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="placepakingspace" ng-model="place.parkingspace" ng-readonly="isReadOnlyInput" required> 
+							<span class="error" ng-show="placeForm.$dirty && placeForm.placepakingspace.$error.required">字段必须填写</span>
+						</div>
+					</div>
+					<div class="form-group" ng-show="isShowInput">
+						<label class="col-lg-3 control-label" >新增停车位</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="addplacepakingspace" ng-model="place.addparkingspace"> 
+						</div>
+					</div>
+					<div class="form-group" ng-show="isShowInput"> 
+						<label class="col-lg-3 control-label">已用停车位</label>
+						<div class="col-lg-5">
+							<input type="number" class="form-control" name="placeuserparking" ng-model="place.userparkingspace"  ng-readonly="isReadOnlyInput"> 
+						</div>
+					</div>
+				</form>
+				
+				<div class="form-group">
+					<div class="col-lg-4 col-lg-offset-4">
+						<button type="submit" class="btn btn-primary" ng-click="addPlace()">提交</button>
+						<!-- <button type="button" class="btn btn-danger" ng-click="deleteUser()">删除</button> -->
+					</div>
+				</div>
+				<div class="col-lg-12"><p style="color:red;font-size:12px;">*注意：全部停车位的数量至少比全部自行车的数量大5</p></div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>

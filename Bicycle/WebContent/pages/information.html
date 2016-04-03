@@ -1,0 +1,27 @@
+<ng-include src="'topbar.html'"></ng-include>
+<div style="width:960px;margin:auto">
+	<form>
+		<fieldset class="xianxia">
+			<legend>个人信息</legend>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">工号：{{user.id}}</label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">姓名：{{ user.name }}</label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">性别：{{ user.sex }}</label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">联系电话：<input type="text" value="user.phone" ng-disabled="isChangeTelClicked"  ng-blur="changeIsChangeTelClicked()" ng-model="user.phone"/><a ng-click="changeTel()">更改</a></label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">邮箱：<input type="text" value="user.email" ng-disabled="isChangeEmailClicked" ng-blur="changeIsChangeEmailClicked()" ng-model="user.email"/><a ng-click="changeEmail()">更改</a></label>
+			</div>
+			<div class="form-group">
+				<label class="col-lg-12 control-label">余额：￥{{user.money}}<a href="#prepaid">充值</a></label>
+			</div>
+		</fieldset>
+		<button type="submit" class="btn btn-primary col-sm-offset-1" ng-click="updateChange()">提交</button>
+	</form>
+</div>
